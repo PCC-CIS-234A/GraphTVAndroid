@@ -1,5 +1,6 @@
 package edu.pcc.marc.graphtv.presentation.fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -41,6 +42,7 @@ public class TitleSearchFragment extends Fragment implements ShowListener, TextW
     public void onAttach(Context context) {
         super.onAttach(context);
         m_MainActivity = (MainActivity) context;
+        m_MainActivity.setSelectedShow(null);
     }
 
     @Override
@@ -53,6 +55,7 @@ public class TitleSearchFragment extends Fragment implements ShowListener, TextW
         rootView.findViewById(R.id.show_header_series_title).setVisibility(TextView.GONE);
 
         m_ListView = rootView.findViewById(R.id.listview);
+        m_ListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
         m_TitleSearchBox = rootView.findViewById(R.id.title_search_box);
         m_TitleSearchBox.addTextChangedListener(this);
@@ -65,7 +68,9 @@ public class TitleSearchFragment extends Fragment implements ShowListener, TextW
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                m_MainActivity.showEpisodeRatings(m_ShowList.get(position));
+                // m_MainActivity.showEpisodeRatings(m_ShowList.get(position));
+                m_ListView.setItemChecked(position, true);
+                m_MainActivity.setSelectedShow(m_ShowList.get(position));
             }
         });
         return rootView;
@@ -77,6 +82,9 @@ public class TitleSearchFragment extends Fragment implements ShowListener, TextW
 
     @Override
     public void showsArrived(final ArrayList<Show> shows) {
+        Activity activity = getActivity();
+        if (activity == null)
+            return;
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -84,6 +92,7 @@ public class TitleSearchFragment extends Fragment implements ShowListener, TextW
                 m_Adapter = new ShowTitleListViewAdapter(m_This, m_ShowList, false,false, true);
                 m_ListView.setAdapter(m_Adapter);
                 m_Adapter.notifyDataSetChanged();
+                m_MainActivity.setSelectedShow(null);
             }
         });
     }

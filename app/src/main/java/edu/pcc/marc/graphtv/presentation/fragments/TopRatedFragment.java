@@ -87,6 +87,7 @@ public class TopRatedFragment extends Fragment implements ShowListener, TextWatc
                                     int position, long id) {
                 // m_MainActivity.showEpisodeRatings(m_ShowList.get(position));
                 m_ListView.setItemChecked(position, true);
+                m_MainActivity.setSelectedShow(m_ShowList.get(position));
             }
         });
         return rootView;
@@ -96,6 +97,7 @@ public class TopRatedFragment extends Fragment implements ShowListener, TextWatc
     public void onAttach(Context context) {
         super.onAttach(context);
         m_MainActivity = (MainActivity) context;
+        m_MainActivity.setSelectedShow(null);
         m_Searcher = new TopRatedSearcher(context);
         m_Searcher.addShowListener(this);
     }
@@ -199,6 +201,7 @@ public class TopRatedFragment extends Fragment implements ShowListener, TextWatc
                 m_Adapter = new ShowTitleListViewAdapter(m_This, m_ShowList, hasType, hasParent, hasEpisodes);
                 m_ListView.setAdapter(m_Adapter);
                 m_Adapter.notifyDataSetChanged();
+                m_MainActivity.setSelectedShow(null);
             }
         });
     }

@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private static TopRatedFragment m_TopRatedFragment = new TopRatedFragment();
     private final MainActivity m_Activity = this;
     private MenuItem m_IMDbMenu;
+    private Show m_SelectedShow = null;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -47,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_top_rated:
                     transaction.replace(R.id.content_frame, m_TopRatedFragment);
                     break;
+                case R.id.navigation_web:
+                    transaction.replace(R.id.content_frame, m_WebPageFragment);
+                    m_WebPageFragment.setWebPage("https://www.imdb.com/title/" + m_SelectedShow.getID());
             }
             transaction.commit();
             return true;
@@ -88,4 +92,9 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         showAbout();
 	}
+
+	public void setSelectedShow(Show show) {
+        m_SelectedShow = show;
+        m_IMDbMenu.setEnabled(show != null);
+    }
 }

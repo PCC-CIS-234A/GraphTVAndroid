@@ -16,4 +16,10 @@
         android:icon="@drawable/ic_favorite_border_black_24dp"
         android:title="@string/top_rated" />
 
+
+    <item
+        android:id="@+id/navigation_web"
+        android:icon="@drawable/ic_web_black_24dp"
+        android:title="IMDb Page" />
+
 </menu>

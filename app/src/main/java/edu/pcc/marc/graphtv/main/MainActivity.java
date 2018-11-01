@@ -2,6 +2,7 @@ package edu.pcc.marc.graphtv.main;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -25,12 +26,14 @@ public class MainActivity extends AppCompatActivity {
     private static AboutFragment m_AboutFragment = new AboutFragment();
     private static TopRatedFragment m_TopRatedFragment = new TopRatedFragment();
     private final MainActivity m_Activity = this;
+    private MenuItem m_IMDbMenu;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            item.setChecked(true);
             FragmentManager manager = getSupportFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
             transaction.addToBackStack(null);
@@ -80,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
         BottomNavigationView navigation = findViewById(R.id.navigation);
+        m_IMDbMenu = navigation.getMenu().findItem(R.id.navigation_web);
+        m_IMDbMenu.setEnabled(false);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         showAbout();
 	}

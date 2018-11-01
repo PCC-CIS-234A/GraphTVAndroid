@@ -14,13 +14,14 @@
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
-        app:itemTextColor="@drawable/nav_colors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
-        app:itemIconTint="@drawable/nav_colors"
-        app:itemBackground="@drawable/cell_shape"
+        app:labelVisibilityMode="labeled"
+        app:itemIconTint="@drawable/nav_text_colors"
+        app:itemTextColor="@drawable/nav_text_colors"
+        app:itemBackground="@drawable/nav_colors"
         android:background="?android:attr/windowBackground"
         app:menu="@menu/menu" />
 

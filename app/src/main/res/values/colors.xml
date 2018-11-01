@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorCell">#FFFF00</color>
+    <color name="aboutTextColor">#FFFF00</color>
+    <color name="navColor">#7F7F00</color>
+    <color name="navColorChecked">#FFFF00</color>
+    <color name="headerTextColor">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="listBackground">#000000</color>
+    <color name="listBackgroundChecked">#7F7F00</color>
+</resources>

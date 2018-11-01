@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorCell" >
+
+    <TextView
+        style="@style/tableHeaderText"
+        android:textColor="@color/headerTextColor"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:gravity="left"
+        android:background="@drawable/cell_shape"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:singleLine="true"
+        android:text="@string/title" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/show_header_type"
+        style="@style/tableHeaderText"
+        android:textColor="@color/headerTextColor"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:background="@drawable/cell_shape"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:singleLine="true"
+        android:text="@string/title_type" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/show_header_series_title"
+        style="@style/tableHeaderText"
+        android:textColor="@color/headerTextColor"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:gravity="left"
+        android:background="@drawable/cell_shape"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:singleLine="true"
+        android:text="@string/series_title" >
+    </TextView>
+
+    <TextView
+        style="@style/tableHeaderText"
+        android:textColor="@color/headerTextColor"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/cell_shape"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:singleLine="true"
+        android:text="@string/year" >
+    </TextView>
+
+    <TextView
+        style="@style/tableHeaderText"
+        android:textColor="@color/headerTextColor"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.25"
+        android:gravity="center"
+        android:background="@drawable/cell_shape"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:singleLine="true"
+        android:text="@string/runtime" >
+    </TextView>
+
+    <TextView
+        style="@style/tableHeaderText"
+        android:textColor="@color/headerTextColor"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/cell_shape"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:singleLine="true"
+        android:text="@string/rating" >
+    </TextView>
+
+    <TextView
+        style="@style/tableHeaderText"
+        android:textColor="@color/headerTextColor"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/cell_shape"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:singleLine="true"
+        android:text="@string/votes" >
+    </TextView>
+
+    <TextView
+        style="@style/tableHeaderText"
+        android:textColor="@color/headerTextColor"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3.5"
+        android:gravity="left"
+        android:background="@drawable/cell_shape"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:singleLine="true"
+        android:text="@string/genres" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/show_header_episodes"
+        style="@style/tableHeaderText"
+        android:textColor="@color/headerTextColor"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.25"
+        android:gravity="center"
+        android:background="@drawable/cell_shape"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:singleLine="true"
+        android:text="@string/episodes" >
+    </TextView>
+
+</LinearLayout>

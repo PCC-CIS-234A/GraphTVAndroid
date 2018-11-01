@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".presentation.fragments.AboutFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="@dimen/about_header_size"
+            android:textColor="@color/aboutTextColor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/about_header_spacer"
+            android:text="@string/graphtv_and_friends" />
+        <TextView
+            android:textSize="@dimen/about_info_size"
+            android:textColor="@color/aboutTextColor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/about_info_1" />
+        <TextView
+            android:textSize="@dimen/about_info_size"
+            android:textColor="@color/aboutTextColor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/about_info_1b" />
+        <TextView
+            android:textSize="@dimen/about_info_size"
+            android:textColor="@color/aboutTextColor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/about_header_spacer"
+            android:text="@string/about_info_2" />
+        <TextView
+            android:textSize="@dimen/about_note_size"
+            android:textColor="@color/aboutTextColor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/written_by" />
+        <TextView
+            android:textSize="@dimen/about_note_size"
+            android:textColor="@color/aboutTextColor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Download this code with git clone https://github.com/PCC-CIS-234A/GraphTVAndroid.git" />
+    </LinearLayout>
+
+</LinearLayout>

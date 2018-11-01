@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        style="@style/tableText"
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:gravity="left"
+        android:background="@drawable/list_colors"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:layout_marginTop="@dimen/cell_border_size"
+        android:layout_marginLeft="@dimen/cell_border_size"
+        android:layout_marginBottom="@dimen/cell_border_size"
+        android:layout_marginRight="@dimen/cell_border_size"
+        android:singleLine="true"
+        android:text="@string/title" >
+    </TextView>
+
+    <TextView
+        style="@style/tableText"
+        android:id="@+id/title_type"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:background="@drawable/list_colors"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:layout_marginTop="@dimen/cell_border_size"
+        android:layout_marginLeft="@dimen/cell_border_size"
+        android:layout_marginBottom="@dimen/cell_border_size"
+        android:layout_marginRight="@dimen/cell_border_size"
+        android:singleLine="true"
+        android:text="@string/title_type" >
+    </TextView>
+
+    <TextView
+        style="@style/tableText"
+        android:id="@+id/series_title"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:gravity="left"
+        android:background="@drawable/list_colors"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:layout_marginTop="@dimen/cell_border_size"
+        android:layout_marginLeft="@dimen/cell_border_size"
+        android:layout_marginBottom="@dimen/cell_border_size"
+        android:layout_marginRight="@dimen/cell_border_size"
+        android:singleLine="true"
+        android:text="@string/series_title" >
+    </TextView>
+
+    <TextView
+        style="@style/tableText"
+        android:id="@+id/start_year"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/list_colors"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:layout_marginTop="@dimen/cell_border_size"
+        android:layout_marginLeft="@dimen/cell_border_size"
+        android:layout_marginBottom="@dimen/cell_border_size"
+        android:layout_marginRight="@dimen/cell_border_size"
+        android:singleLine="true"
+        android:text="@string/year" >
+    </TextView>
+
+    <TextView
+        style="@style/tableText"
+        android:id="@+id/runtime_minutes"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.25"
+        android:gravity="center"
+        android:background="@drawable/list_colors"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:layout_marginTop="@dimen/cell_border_size"
+        android:layout_marginLeft="@dimen/cell_border_size"
+        android:layout_marginBottom="@dimen/cell_border_size"
+        android:layout_marginRight="@dimen/cell_border_size"
+        android:singleLine="true"
+        android:text="@string/runtime" >
+    </TextView>
+
+    <TextView
+        style="@style/tableText"
+        android:id="@+id/rating"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/list_colors"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:layout_marginTop="@dimen/cell_border_size"
+        android:layout_marginLeft="@dimen/cell_border_size"
+        android:layout_marginBottom="@dimen/cell_border_size"
+        android:layout_marginRight="@dimen/cell_border_size"
+        android:singleLine="true"
+        android:text="@string/rating" >
+    </TextView>
+
+    <TextView
+        style="@style/tableText"
+        android:id="@+id/votes"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/list_colors"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:layout_marginTop="@dimen/cell_border_size"
+        android:layout_marginLeft="@dimen/cell_border_size"
+        android:layout_marginBottom="@dimen/cell_border_size"
+        android:layout_marginRight="@dimen/cell_border_size"
+        android:singleLine="true"
+        android:text="@string/votes" >
+    </TextView>
+
+    <TextView
+        style="@style/tableText"
+        android:id="@+id/genres"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3.5"
+        android:gravity="left"
+        android:background="@drawable/list_colors"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:layout_marginTop="@dimen/cell_border_size"
+        android:layout_marginLeft="@dimen/cell_border_size"
+        android:layout_marginBottom="@dimen/cell_border_size"
+        android:layout_marginRight="@dimen/cell_border_size"
+        android:singleLine="true"
+        android:text="@string/genres" >
+    </TextView>
+
+    <TextView
+        style="@style/tableText"
+        android:id="@+id/episodes"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.25"
+        android:gravity="center"
+        android:background="@drawable/list_colors"
+        android:ellipsize="end"
+        android:padding="@dimen/table_cell_padding"
+        android:layout_marginTop="@dimen/cell_border_size"
+        android:layout_marginLeft="@dimen/cell_border_size"
+        android:layout_marginBottom="@dimen/cell_border_size"
+        android:layout_marginRight="@dimen/cell_border_size"
+        android:singleLine="true"
+        android:text="@string/episodes" >
+    </TextView>
+
+</LinearLayout>

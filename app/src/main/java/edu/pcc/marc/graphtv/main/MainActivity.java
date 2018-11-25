@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private static TopRatedFragment m_TopRatedFragment = new TopRatedFragment();
     private final MainActivity m_Activity = this;
     private MenuItem m_IMDbMenu;
+    private MenuItem m_ChartMenu;
     private Show m_SelectedShow = null;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -51,6 +52,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_web:
                     transaction.replace(R.id.content_frame, m_WebPageFragment);
                     m_WebPageFragment.setWebPage("https://www.imdb.com/title/" + m_SelectedShow.getID());
+                    break;
+                case R.id.navigation_chart:
+                    transaction.replace(R.id.content_frame, m_EpisodeRatingsFragment);
+                    m_EpisodeRatingsFragment.showEpisodeGraph(m_Activity, m_SelectedShow);
+                    break;
             }
             transaction.commit();
             return true;
@@ -89,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = findViewById(R.id.navigation);
         m_IMDbMenu = navigation.getMenu().findItem(R.id.navigation_web);
         m_IMDbMenu.setEnabled(false);
+        m_ChartMenu = navigation.getMenu().findItem(R.id.navigation_chart);
+        m_ChartMenu.setEnabled(false);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         showAbout();
 	}
@@ -96,5 +104,10 @@ public class MainActivity extends AppCompatActivity {
 	public void setSelectedShow(Show show) {
         m_SelectedShow = show;
         m_IMDbMenu.setEnabled(show != null);
+        if (show != null && show.getNumEpisodes() > 0) {
+            m_ChartMenu.setEnabled(true);
+        } else {
+            m_ChartMenu.setEnabled(false);
+        }
     }
 }

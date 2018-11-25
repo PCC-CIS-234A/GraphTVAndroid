@@ -44,6 +44,11 @@ public class Show {
         m_ParentID = parentID;
     }
 
+    public Show(String id, String title) {
+        m_ID = id;
+        m_Title = title;
+    }
+
     public static ArrayList<Show> findTopRatedShows(String showType, String genre, int minVotes) {
         return WebData.findTopRatedShows(showType, genre, minVotes);
     }

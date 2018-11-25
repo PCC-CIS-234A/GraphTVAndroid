@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import edu.pcc.marc.graphtv.logic.Episode;
+import edu.pcc.marc.graphtv.logic.Show;
 import edu.pcc.marc.graphtv.main.MainActivity;
 
 public class GraphView extends SurfaceView implements SurfaceHolder.Callback, View.OnTouchListener {
@@ -135,6 +136,7 @@ public class GraphView extends SurfaceView implements SurfaceHolder.Callback, Vi
     private int m_InfoColor;
     private int m_InfoBorderColor;
     private Rect m_SelectedInfoBox = null;
+    private Show m_InitialShow = null;
 
     public GraphView(Context context) {
         super(context);
@@ -175,7 +177,8 @@ public class GraphView extends SurfaceView implements SurfaceHolder.Callback, Vi
     }
 
 
-    public void setEpisodes(ArrayList<Episode> episodes, String title) {
+    public void setEpisodes(Show initial, ArrayList<Episode> episodes, String title) {
+        m_InitialShow = initial;
         m_Episodes = episodes;
         m_Title = title;
         repaint();
@@ -458,8 +461,16 @@ public class GraphView extends SurfaceView implements SurfaceHolder.Callback, Vi
         }
         if (m_Points != null && m_Points.size() > 0) {
             DataPoint point = DataPoint.findDataPoint(m_Points, e.getX(), e.getY(), m_Sizes.pointRadius);
-            if(point != m_SelectedPoint) {
+            if (point == null) {
                 m_SelectedPoint = point;
+                ((MainActivity) getContext()).setSelectedShow(m_InitialShow);
+            } else if(point != m_SelectedPoint) {
+                m_SelectedPoint = point;
+                Episode episode = m_SelectedPoint.getEpisode();
+                ((MainActivity) getContext()).setSelectedShow(new Show(
+                        episode.getID(),
+                        episode.getTitle()
+                ));
                 repaint();
             }
         }

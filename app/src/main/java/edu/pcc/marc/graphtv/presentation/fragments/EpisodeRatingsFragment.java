@@ -31,16 +31,29 @@ public class EpisodeRatingsFragment extends Fragment {
     private GraphView m_GraphView;
     private ArrayList<Episode> m_Episodes = null;
     private String m_Title = null;
+    private Show m_InitialShow = null;
 
     public EpisodeRatingsFragment() {
         // Required empty public constructor
     }
 
     public void showEpisodeGraph(final MainActivity activity, final Show series) {
+        m_InitialShow = series;
         new Thread(new Runnable() {
             @Override
             public void run() {
-                final ArrayList<Episode> episodes = WebData.fetchEpisodes(series.getID());
+                final String id;
+                final String title;
+
+                if (series.getParentID() != null && !series.getParentID().equals("")) {
+                    id = series.getParentID();
+                    title = series.getParentTitle();
+                } else {
+                    id = series.getID();
+                    title = series.getTitle();
+                }
+
+                final ArrayList<Episode> episodes = WebData.fetchEpisodes(id);
                 Log.d(TAG, episodes.toString());
                 activity.runOnUiThread(new Runnable() {
                     @Override
@@ -48,7 +61,7 @@ public class EpisodeRatingsFragment extends Fragment {
                         m_Episodes = episodes;
                         m_Title = series.getTitle();
                         if (m_GraphView != null) {
-                            m_GraphView.setEpisodes(episodes, series.getTitle());
+                            m_GraphView.setEpisodes(series, episodes, title);
                         }
                     }
                 });
@@ -81,7 +94,7 @@ public class EpisodeRatingsFragment extends Fragment {
         super.onResume();
         Log.d(TAG, "onResume " + (m_Episodes != null ? m_Episodes.toString() : "null"));
         if (m_Episodes != null) {
-            m_GraphView.setEpisodes(m_Episodes, m_Title);
+            m_GraphView.setEpisodes(m_InitialShow, m_Episodes, m_Title);
         }
     }
 }

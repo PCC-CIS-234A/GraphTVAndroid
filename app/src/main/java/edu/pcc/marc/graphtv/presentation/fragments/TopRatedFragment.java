@@ -36,6 +36,10 @@ import edu.pcc.marc.graphtv.presentation.adapters.ShowTitleListViewAdapter;
  */
 public class TopRatedFragment extends Fragment implements ShowListener, TextWatcher, AdapterView.OnItemSelectedListener {
     public static final String TAG = "TopRatedFragment";
+    public static final String SELECTED_TYPE = "TopRatedFragment.selectedType";
+    public static final String SELECTED_GENRE = "TopRatedFragment.selectedGenre";
+    private int m_SelectedType = 0;
+    private int m_SelectedGenre = 0;
     private Spinner m_TypeSpinner;
     private Spinner m_GenreSpinner;
     private EditText m_NumVotes;
@@ -71,6 +75,10 @@ public class TopRatedFragment extends Fragment implements ShowListener, TextWatc
         m_GenreSpinner.setOnItemSelectedListener(this);
         m_NumVotes.addTextChangedListener(this);
 
+        if (savedInstanceState != null) {
+            m_SelectedType = savedInstanceState.getInt(SELECTED_TYPE);
+            m_SelectedGenre = savedInstanceState.getInt(SELECTED_GENRE);
+        }
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -113,6 +121,8 @@ public class TopRatedFragment extends Fragment implements ShowListener, TextWatc
             @Override
             public void run() {
                 m_TypeSpinner.setAdapter(adapter);
+                if (m_SelectedType != 0)
+                    m_TypeSpinner.setSelection(m_SelectedType);
             }
         });
     }
@@ -128,13 +138,14 @@ public class TopRatedFragment extends Fragment implements ShowListener, TextWatc
             @Override
             public void run() {
                 m_GenreSpinner.setAdapter(adapter);
+                if (m_SelectedGenre != 0)
+                    m_GenreSpinner.setSelection(m_SelectedGenre);
             }
         });
     }
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        update();
     }
 
     @Override
@@ -144,10 +155,11 @@ public class TopRatedFragment extends Fragment implements ShowListener, TextWatc
 
     @Override
     public void afterTextChanged(Editable s) {
-        update();
     }
 
     private void update() {
+        if (m_ShowTypes == null || m_Genres == null)
+            return;
         ShowType type = (ShowType) m_TypeSpinner.getSelectedItem();
         if (type == null)
             return;
@@ -208,10 +220,19 @@ public class TopRatedFragment extends Fragment implements ShowListener, TextWatc
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if (parent == m_TypeSpinner)
+            m_SelectedType = m_TypeSpinner.getSelectedItemPosition();
+        else if (parent == m_GenreSpinner)
+            m_SelectedGenre = m_GenreSpinner.getSelectedItemPosition();
         update();
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putInt(SELECTED_TYPE, m_SelectedType);
     }
 }

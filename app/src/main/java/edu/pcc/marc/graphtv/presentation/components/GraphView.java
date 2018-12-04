@@ -220,7 +220,7 @@ public class GraphView extends SurfaceView implements SurfaceHolder.Callback, Vi
         g2.fillRect(0, 0, panelWidth, panelHeight);
 
         if (m_Episodes == null || m_Episodes.size() == 0) {
-            drawNoInfo(g2, panelWidth, panelHeight);
+            // drawNoInfo(g2, panelWidth, panelHeight);
             return;
         }
 
